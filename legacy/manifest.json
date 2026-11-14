@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Image OCR (offline)",
+  "version": "0.4.0",
+  "description": "Распознавание текста с картинок офлайн: очередь, история, экспорт в Excel, перевод",
+  "minimum_chrome_version": "116",
+  "permissions": ["contextMenus", "power", "offscreen", "sidePanel", "unlimitedStorage"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Image OCR", "default_popup": "popup.html" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

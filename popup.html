@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image OCR</title>
+</head>
+<body data-mode="popup" class="popup">
+  <header class="top">
+    <h1>Image OCR</h1>
+    <span id="pill" class="pill">…</span>
+    <span class="grow"></span>
+    <button id="openPanel" class="icon only-popup" title="Открыть в боковой панели">▥</button>
+    <button id="openTab" class="icon not-full" title="Открыть во вкладке">⤢</button>
+  </header>
+
+  <nav class="tabs">
+    <button data-tab="queue" class="on">Очередь</button>
+    <button data-tab="history">История</button>
+    <button data-tab="settings">Настройки</button>
+  </nav>
+
+  <section id="tab-queue">
+    <div id="drop">
+      <div id="dropText">Перетащите картинки или папку, или вставьте из буфера (Ctrl+V)</div>
+      <div class="btns not-popup">
+        <button id="btnFiles">Выбрать файлы</button>
+        <button id="btnFolder">Выбрать папку</button>
+      </div>
+      <div class="hint only-popup">Выбор файлов — в боковой панели или во вкладке (кнопки вверху): диалог файлов закрывает попап.</div>
+      <input id="file" type="file" accept="image/*" multiple hidden>
+      <input id="folder" type="file" webkitdirectory multiple hidden>
+    </div>
+
+    <div class="progress"><div id="bar"></div></div>
+    <div id="stats"></div>
+    <div id="status"></div>
+
+    <div id="banner" hidden><span id="bannerText"></span><button id="dlBtn">Скачать</button></div>
+
+    <div class="row actions">
+      <button id="pause">Пауза</button>
+      <button id="retry">Повторить ошибки</button>
+      <button id="redoAll">Переделать все</button>
+      <button id="trMissing">Перевести недостающее</button>
+      <button id="export" class="primary">Экспорт .xlsx</button>
+      <button id="clear" class="danger">Очистить всё</button>
+    </div>
+
+    <div class="row filters">
+      <select id="jobFilter"><option value="all">Все задания</option></select>
+      <select id="filter">
+        <option value="all">Все</option><option value="done">Готово</option>
+        <option value="error">Ошибки</option><option value="pending">В очереди</option>
+      </select>
+      <input id="search" type="search" placeholder="Поиск">
+    </div>
+    <div class="row pager"><button id="prev">←</button><span id="pager"></span><button id="next">→</button></div>
+    <div id="list"></div>
+  </section>
+
+  <section id="tab-history" hidden>
+    <p class="hint">Каждое добавление файлов — отдельное задание. История хранится, пока вы её не удалите.</p>
+    <div id="jobs"></div>
+  </section>
+
+  <section id="tab-settings" hidden>
+    <div class="form">
+      <label>Движок
+        <select id="engine">
+          <option value="auto">Авто (Tesseract → PaddleOCR)</option>
+          <option value="paddle">Только PaddleOCR</option>
+          <option value="tesseract">Только Tesseract</option>
+        </select>
+      </label>
+      <label>Язык Tesseract
+        <select id="lang">
+          <option value="rus+eng">Русский + English</option>
+          <option value="ukr+eng">Українська + English</option>
+          <option value="eng">English</option>
+          <option value="rus+ukr+eng">Рус + Укр + Eng</option>
+        </select>
+      </label>
+      <label class="chk"><input type="checkbox" id="translate"> Переводить на</label>
+      <select id="target">
+        <option value="ru">Русский</option><option value="uk">Українська</option><option value="en">English</option>
+        <option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option>
+        <option value="it">Italiano</option><option value="pl">Polski</option><option value="pt">Português</option>
+        <option value="tr">Türkçe</option><option value="ja">日本語</option><option value="ko">한국어</option>
+        <option value="zh">中文</option>
+      </select>
+      <div id="trNote" class="hint"></div>
+      <label class="chk"><input type="checkbox" id="keepImages"> Хранить картинки (нужно для «Переделать»)</label>
+      <div id="storage" class="hint"></div>
+      <button id="dropBlobs">Удалить сохранённые картинки у готовых</button>
+    </div>
+  </section>
+
+  <script type="module" src="./src/ui/main.ts"></script>
+</body>
+</html>

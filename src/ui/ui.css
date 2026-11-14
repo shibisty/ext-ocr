@@ -1,0 +1,56 @@
+:root { color-scheme: light dark; font-family: system-ui, sans-serif; --line: rgba(128,128,128,.3); --accent: #3b82f6; }
+body { margin: 0; font-size: 13px; }
+[hidden] { display: none !important; }
+body.popup { width: 420px; min-height: 480px; max-height: 600px; overflow-y: auto; }
+body.side { min-width: 280px; }
+body.full { max-width: 1100px; margin: 0 auto; }
+body.full .only-popup, body.full .not-full { display: none; }
+body.side .only-popup, body.popup .not-popup { display: none; }
+button, select, input { font: inherit; padding: 5px 10px; }
+button { cursor: pointer; }
+button:disabled { opacity: .5; cursor: default; }
+button.primary { background: var(--accent); color: #fff; border: 0; border-radius: 6px; }
+button.danger { color: #dc2626; }
+button.icon { padding: 3px 8px; }
+.top { display: flex; align-items: center; gap: 8px; padding: 10px 12px 0; }
+.top h1 { font-size: 16px; margin: 0; }
+.grow { flex: 1; }
+.pill { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--line); }
+.pill.run { background: rgba(59,130,246,.25); } .pill.pause { background: rgba(245,158,11,.3); }
+.tabs { display: flex; gap: 4px; padding: 8px 12px 0; border-bottom: 1px solid var(--line); }
+.tabs button { border: 0; background: none; border-bottom: 2px solid transparent; border-radius: 0; padding: 6px 10px; }
+.tabs button.on { border-bottom-color: var(--accent); font-weight: 600; }
+section { padding: 10px 12px 40px; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
+.row.filters input { flex: 1; min-width: 80px; }
+.row.pager { justify-content: center; }
+#drop { border: 2px dashed #888; border-radius: 10px; padding: 12px; text-align: center; }
+#drop.over { border-color: var(--accent); background: rgba(59,130,246,.08); }
+#drop .btns { margin-top: 8px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.hint { opacity: .65; font-size: 12px; margin: 6px 0; }
+.progress { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; margin-top: 12px; }
+#bar { height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+#stats, #status { font-size: 12px; opacity: .8; margin-top: 5px; word-break: break-all; }
+#banner { background: rgba(245,158,11,.15); border: 1px solid #f59e0b; border-radius: 8px; padding: 8px; margin: 8px 0; display: flex; gap: 8px; align-items: center; }
+.card { display: grid; grid-template-columns: 48px 1fr; gap: 4px 10px; border-bottom: 1px solid var(--line); padding: 8px 0; }
+.card .thumb { width: 44px; height: 44px; object-fit: cover; border-radius: 4px; cursor: zoom-in; background: var(--line); }
+.card .cols { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr; gap: 6px; }
+body.full .card .cols { grid-template-columns: 1fr 1fr; }
+.card .btns { grid-column: 1 / -1; display: flex; gap: 6px; }
+.card .btns button { padding: 2px 8px; font-size: 12px; }
+.fname { font-weight: 600; word-break: break-all; }
+.sub { font-size: 12px; opacity: .75; }
+.txt { white-space: pre-wrap; word-break: break-word; max-height: 6.6em; overflow: hidden; cursor: pointer; background: rgba(128,128,128,.08); border-radius: 6px; padding: 4px 6px; }
+.txt:empty { display: none; }
+.txt.open { max-height: none; }
+.muted { opacity: .6; font-style: italic; }
+.err { color: #dc2626; } .warn { color: #d97706; font-size: 12px; }
+.st-done .stt { color: #16a34a; } .st-error .stt { color: #dc2626; } .st-processing .stt { color: var(--accent); }
+.job { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; margin-bottom: 8px; }
+.job .jh { display: flex; justify-content: space-between; gap: 8px; }
+.job .btns { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.job .btns button { padding: 2px 8px; font-size: 12px; }
+.form { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.form label { display: flex; flex-direction: column; gap: 3px; }
+.form label.chk { flex-direction: row; align-items: center; gap: 6px; }
+.form input[type=checkbox] { padding: 0; }

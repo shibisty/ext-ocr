@@ -1,0 +1,12 @@
+:root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+body { margin: 0; }
+main { max-width: 760px; margin: 0 auto; padding: 24px; }
+h1 { font-size: 20px; }
+#drop { border: 2px dashed #888; border-radius: 10px; padding: 24px; text-align: center; margin-bottom: 16px; }
+#drop.over { border-color: #3b82f6; background: rgba(59,130,246,.08); }
+.link { color: #3b82f6; cursor: pointer; text-decoration: underline; }
+.row { display: flex; gap: 16px; align-items: center; margin: 12px 0; }
+#preview { max-width: 100%; max-height: 260px; display: block; margin-bottom: 12px; border-radius: 6px; }
+textarea { width: 100%; box-sizing: border-box; padding: 10px; font: 14px/1.4 ui-monospace, monospace; }
+button, select { padding: 6px 12px; }
+#status, #conf { opacity: .7; font-size: 13px; }
